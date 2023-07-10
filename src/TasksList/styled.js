@@ -25,10 +25,12 @@ ${({ hidden }) =>
 
 export const Content = styled.span`
 margin: 0 10px;
+transition: 0.3s;
 
 ${({ done }) =>
     done &&
     css`
+    transition: 0.3s;
       text-decoration: line-through hsl(0, 0%, 100%);
       color: hsl(0, 0%, 50%);
     `}
