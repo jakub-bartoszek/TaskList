@@ -7,21 +7,17 @@ import { Buttons } from "./Buttons";
 import { Searchbar } from "./Searchbar";
 import { Button } from "./common/Button/styled";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
 	const [hideDone, setHideDone] = useState(false);
-	const [tasks, setTasks] = useState([
-		{
-			id: 1,
-			content: "Example task",
-			done: false
-		},
-		{
-			id: 2,
-			content: "Another example task",
-			done: true
-		}
-	]);
+	const [tasks, setTasks] = useState(
+		JSON.parse(localStorage.getItem("tasks"))
+	);
+
+	useEffect(() => {
+		localStorage.setItem("tasks", JSON.stringify(tasks));
+	}, [tasks]);
 
 	const toggleHideDone = () => {
 		setHideDone((hideDone) => !hideDone);
