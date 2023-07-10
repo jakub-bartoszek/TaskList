@@ -25,6 +25,13 @@ ${({ hidden }) =>
 
 export const Content = styled.span`
 margin: 0 10px;
+
+${({ done }) =>
+    done &&
+    css`
+      text-decoration: line-through hsl(0, 0%, 100%);
+      color: hsl(0, 0%, 50%);
+    `}
 `;
 
 export const ToggleDoneButton = styled.button`

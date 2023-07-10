@@ -9,63 +9,98 @@ import { Button } from "./common/Button/styled";
 import { useState } from "react";
 
 function App() {
-  const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState(
-    [
-      {
-        id: 1,
-        content: "Example task",
-        done: false
-      },
-      {
-        id: 2,
-        content: "Another example task",
-        done: true
-      }
-    ]
-  );
+	const [hideDone, setHideDone] = useState(false);
+	const [tasks, setTasks] = useState([
+		{
+			id: 1,
+			content: "Example task",
+			done: false
+		},
+		{
+			id: 2,
+			content: "Another example task",
+			done: true
+		}
+	]);
 
-  const toggleHideDone = () => {
-    setHideDone(hideDone => !hideDone);
-  };
+	const toggleHideDone = () => {
+		setHideDone((hideDone) => !hideDone);
+	};
 
-  const removeTask = (id) => {
-    setTasks(tasks => tasks.filter(task => task.id !== id));
-  };
+	const removeTask = (id) => {
+		setTasks((tasks) =>
+			tasks.filter((task) => task.id !== id)
+		);
+	};
 
-  const toggleTaskDone = (id) => {
-    setTasks(tasks => tasks.map(task => {
-      if (task.id === id) {
-        return { ...task, done: !task.done };
-      }
-      return task;
-    }));
-  };
+	const toggleTaskDone = (id) => {
+		setTasks((tasks) =>
+			tasks.map((task) => {
+				if (task.id === id) {
+					return { ...task, done: !task.done };
+				}
+				return task;
+			})
+		);
+	};
 
-  return (
-    <>
-      <Container>
-        <Header
-          title="To-do List"
-        />
-        <Section
-          title="Add new task"
-          extraHeaderContent={<Button>Download example tasks</Button>}
-          body={<Form />}
-        />
-        <Section
-          title="Tasks"
-          extraHeaderContent={<Buttons hideDone={hideDone} toggleHideDone={toggleHideDone} />}
-          body={
-            <>
-              <Searchbar />
-              <TasksList hideDone={hideDone} tasks={tasks} removeTask={removeTask} toggleTaskDone={toggleTaskDone} />
-            </>
-          }
-        />
-      </Container>
-    </>
-  );
-};
+	const setAllDone = () => {
+		setTasks((tasks) =>
+			tasks.map((task) => ({
+				...task,
+				done: true
+			}))
+		);
+	};
+
+	const addNewTask = (newTaskContent) => {
+		setTasks((tasks) => [
+			...tasks,
+			{
+				id: tasks.length
+					? tasks[tasks.length - 1].id + 1
+					: 1,
+				done: false,
+				content: newTaskContent
+			}
+		]);
+	};
+
+	return (
+		<>
+			<Container>
+				<Header title="To-do List" />
+				<Section
+					title="Add new task"
+					extraHeaderContent={
+						<Button>Download example tasks</Button>
+					}
+					body={<Form addNewTask={addNewTask} />}
+				/>
+				<Section
+					title="Tasks"
+					extraHeaderContent={
+						<Buttons
+							hideDone={hideDone}
+							toggleHideDone={toggleHideDone}
+							toggleAllDone={setAllDone}
+						/>
+					}
+					body={
+						<>
+							<Searchbar />
+							<TasksList
+								hideDone={hideDone}
+								tasks={tasks}
+								removeTask={removeTask}
+								toggleTaskDone={toggleTaskDone}
+							/>
+						</>
+					}
+				/>
+			</Container>
+		</>
+	);
+}
 
 export default App;
