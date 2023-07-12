@@ -8,6 +8,7 @@ export const Form = ({ addNewTask }) => {
   const onFormSubmit = (event) => {
     event.preventDefault();
     addNewTask(newTaskContent.trim());
+    setNewTaskContent("");
   };
 
   const [newTaskContent, setNewTaskContent] = useState("");
