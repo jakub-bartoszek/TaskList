@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input } from "../common/Input/styled";
+import { Input } from "../../../common/Input/styled";
 import { Button, Wrapper } from "./styled";
 import { useRef } from "react";
 
