@@ -14,4 +14,10 @@ transition: 0.3s;
   color: hsl(0, 100%, 92%);
   scale: 1.05;
 }
+&:disabled{
+  color: grey;
+  text-shadow: none;
+  cursor: default;
+  scale: 1;
+}
 `;
