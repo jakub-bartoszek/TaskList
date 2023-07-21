@@ -5,18 +5,15 @@ import { Form } from "./Form";
 import { TasksList } from "./TasksList";
 import { Buttons } from "./Buttons";
 import { Searchbar } from "./Searchbar";
-import { Button } from "../../common/Button/styled";
 
 function Tasks() {
+
 	return (
 		<>
 			<Container>
 				<Header title="To-do List" />
 				<Section
 					title="Add new task"
-					extraHeaderContent={
-						<Button>Download example tasks</Button>
-					}
 					body={<Form />}
 				/>
 				<Section
