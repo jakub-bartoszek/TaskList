@@ -31,6 +31,19 @@ const tasksSlice = createSlice({
 		toggleHideDone: (state) => {
 			state.hideDone = !state.hideDone;
 		},
+		toggleEditing: ({ tasks }, { payload: taskId }) => {
+			const index = tasks.findIndex(task => task.id === taskId);
+			tasks[index].beingEdited = !tasks[index].beingEdited;
+		},
+		saveNewTask: ({ tasks }, { payload: [taskId, taskContent] }) => {
+			const index = tasks.findIndex(task => task.id === taskId);
+			tasks[index].content = taskContent;
+		},
+		turnOffEditingForOtherTasks: ({ tasks }) => {
+			for (const task of tasks) {
+				task.beingEdited = false;
+			}
+		}
 	}
 });
 
@@ -40,6 +53,9 @@ export const {
 	toggleTaskDone,
 	toggleHideDone,
 	setAllDone,
+	toggleEditing,
+	saveNewTask,
+	turnOffEditingForOtherTasks,
 } = tasksSlice.actions;
 
 export const selectTasks = (state) => state.tasks.tasks;

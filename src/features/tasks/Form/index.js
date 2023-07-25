@@ -25,6 +25,7 @@ export const Form = () => {
         content: newTaskContent,
         done: false,
         id: nanoid(),
+        beingEdited: false
       }));
     }
     resetInput();

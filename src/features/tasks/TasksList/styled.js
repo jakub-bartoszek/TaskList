@@ -82,3 +82,18 @@ cursor: pointer;
   border-radius: 5px;
 }
 `;
+
+export const SaveButton = styled.button`
+background-color: hsl(260, 5%, 10%);
+border: none;
+height: 30px;
+width: 30px;
+border-radius: 5px;
+transition: background-color 0.5s, scale 0.3s, border-radius 0.1s;
+cursor: pointer;
+&:hover {
+  background-color: blue;
+  scale: 1.1;
+  border-radius: 5px;
+}
+`;
