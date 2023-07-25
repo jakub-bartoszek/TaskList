@@ -4,7 +4,6 @@ import { Header } from "../../../common/Header";
 import { Form } from "./Form";
 import { TasksList } from "./TasksList";
 import { Buttons } from "./Buttons";
-import { Searchbar } from "./Searchbar";
 
 function TasksPage() {
 
@@ -23,7 +22,6 @@ function TasksPage() {
 					}
 					body={
 						<>
-							<Searchbar />
 							<TasksList />
 						</>
 					}

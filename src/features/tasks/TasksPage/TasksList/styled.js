@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
+export const SearchBar = styled.div`
+`;
+
 export const List = styled.ul`
 	margin: 0;
 	padding: 25px 0;
@@ -18,8 +21,8 @@ export const Task = styled.li`
 	border-radius: 10px;
 
 	${({ hidden }) =>
-    hidden &&
-    css`
+		hidden &&
+		css`
 			display: none;
 		`}
 `;
@@ -30,8 +33,8 @@ export const Content = styled.span`
   color: white;
 
 	${({ done }) =>
-    done &&
-    css`
+		done &&
+		css`
 			transition: 0.3s;
 			text-decoration: line-through hsl(0, 0%, 100%);
 			color: hsl(0, 0%, 50%);
