@@ -5,22 +5,18 @@ const tasksSlice = createSlice({
 	name: "tasks",
 	initialState: {
 		tasks: getTasksFromLocalStorage(),
-		hideDone: false,
+		hideDone: false
 	},
 	reducers: {
 		addNewTask: ({ tasks }, { payload: task }) => {
 			tasks.push(task);
 		},
 		removeTask: ({ tasks }, { payload: taskId }) => {
-			const index = tasks.findIndex(
-				(task) => task.id === taskId
-			);
+			const index = tasks.findIndex(({id}) => id === taskId);
 			tasks.splice(index, 1);
 		},
 		toggleTaskDone: ({ tasks }, { payload: taskId }) => {
-			const index = tasks.findIndex(
-				(task) => task.id === taskId
-			);
+			const index = tasks.findIndex(({id}) => id === taskId);
 			tasks[index].done = !tasks[index].done;
 		},
 		setAllDone: ({ tasks }) => {
@@ -32,11 +28,11 @@ const tasksSlice = createSlice({
 			state.hideDone = !state.hideDone;
 		},
 		toggleEditing: ({ tasks }, { payload: taskId }) => {
-			const index = tasks.findIndex(task => task.id === taskId);
+			const index = tasks.findIndex(({id}) => id === taskId);
 			tasks[index].beingEdited = !tasks[index].beingEdited;
 		},
 		saveNewTask: ({ tasks }, { payload: [taskId, taskContent] }) => {
-			const index = tasks.findIndex(task => task.id === taskId);
+			const index = tasks.findIndex(({id}) => id === taskId);
 			tasks[index].content = taskContent;
 		},
 		turnOffEditingForOtherTasks: ({ tasks }) => {
@@ -55,10 +51,12 @@ export const {
 	setAllDone,
 	toggleEditing,
 	saveNewTask,
-	turnOffEditingForOtherTasks,
+	turnOffEditingForOtherTasks
 } = tasksSlice.actions;
 
 export const selectTasks = (state) => state.tasks.tasks;
 export const selectHideDone = (state) => state.tasks.hideDone;
+export const getTaskById = (state, taskId) =>
+	selectTasks(state).find(({ id }) => id === taskId);
 
 export default tasksSlice.reducer;

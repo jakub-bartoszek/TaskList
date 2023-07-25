@@ -1,14 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useRef, useState } from "react";
+import { Input } from "../../../../common/Input/styled";
 import {
 	List,
 	Task,
-	Content,
 	ToggleDoneButton,
 	EditButton,
 	RemoveButton,
-	SaveButton
+	SaveButton,
+	Content,
+	StyledLink,
 } from "./styled";
-import { Input } from "../../../common/Input/styled";
 import {
 	removeTask,
 	turnOffEditingForOtherTasks,
@@ -17,8 +19,7 @@ import {
 	selectTasks,
 	toggleEditing,
 	toggleTaskDone
-} from "../tasksSlice";
-import { useRef, useState } from "react";
+} from "../../tasksSlice";
 
 export const TasksList = () => {
 	const tasks = useSelector(selectTasks);
@@ -61,7 +62,11 @@ export const TasksList = () => {
 						</>
 					) : (
 						<>
-							<Content done={task.done}>{task.content}</Content>
+							<StyledLink to={`/to-do-list/${task.id}`}>
+								<Content done={task.done}>
+									{task.content}
+								</Content>
+							</StyledLink>
 							<EditButton
 								onClick={async () => {
 									dispatch(turnOffEditingForOtherTasks());
@@ -70,7 +75,7 @@ export const TasksList = () => {
 									try {
 										await inputRef.current;
 										inputRef.current.focus();
-									} catch {}
+									} catch { }
 								}}
 							>
 								✏️

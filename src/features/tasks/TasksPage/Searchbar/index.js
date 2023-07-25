@@ -1,4 +1,4 @@
-import { Input } from "../../../common/Input/styled";
+import { Input } from "../../../../common/Input/styled";
 import { Wrapper } from "./styled";
 
 export const Searchbar = () => (

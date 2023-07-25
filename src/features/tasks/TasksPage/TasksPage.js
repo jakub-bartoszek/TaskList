@@ -1,12 +1,12 @@
-import { Container } from "../../common/Container/styled";
-import { Section } from "../../common/Section/index";
-import { Header } from "../../common/Header";
+import { Container } from "../../../common/Container/styled";
+import { Section } from "../../../common/Section/index";
+import { Header } from "../../../common/Header";
 import { Form } from "./Form";
 import { TasksList } from "./TasksList";
 import { Buttons } from "./Buttons";
 import { Searchbar } from "./Searchbar";
 
-function Tasks() {
+function TasksPage() {
 
 	return (
 		<>
@@ -33,4 +33,4 @@ function Tasks() {
 	);
 }
 
-export default Tasks;
+export default TasksPage;
