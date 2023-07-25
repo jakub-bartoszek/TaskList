@@ -10,8 +10,6 @@ function TasksPage() {
   const { id } = useParams();
   const task = useSelector(state => getTaskById(state, id));
 
-
-
   return (
     <>
       <Container>
