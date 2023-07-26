@@ -50,7 +50,7 @@ export const TasksList = () => {
 			</SearchBar>
 			{tasks.length ? (
 				!matchingTasks.length ? (
-					<NoTasks>Brak pasujących zadań</NoTasks>
+					<NoTasks>No matching tasks</NoTasks>
 				) : (
 					<List>
 						{tasks.map((task) => (
@@ -120,7 +120,7 @@ export const TasksList = () => {
 					</List>
 				)
 			) : (
-				<NoTasks>Brak zadań</NoTasks>
+				<NoTasks>Your tasks are empty</NoTasks>
 			)}
 		</>
 	);
