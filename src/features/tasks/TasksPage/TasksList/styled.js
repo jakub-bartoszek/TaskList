@@ -6,8 +6,9 @@ export const SearchBar = styled.div`
 
 export const List = styled.ul`
 	margin: 0;
-	padding: 25px 0;
+	padding: 25px 0  0;
 	list-style: none;
+	
 `;
 
 export const Task = styled.li`
@@ -15,8 +16,7 @@ export const Task = styled.li`
 	gap: 3px;
 	grid-template-columns: auto 1fr auto auto;
 	align-items: center;
-	margin: 0;
-	margin-bottom: 10px;
+	margin: 7px 0;
 	background-color: hsl(260, 5%, 12%);
 	border-radius: 10px;
 
@@ -92,6 +92,14 @@ export const EditButton = styled.button`
 	}
 `;
 
+export const EditField = styled.form`
+display: grid;
+	gap: 3px;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	margin: 0;
+`;
+
 export const SaveButton = styled.button`
 	background-color: hsl(260, 5%, 10%);
 	border: none;
@@ -105,4 +113,11 @@ export const SaveButton = styled.button`
 		scale: 1.1;
 		border-radius: 5px;
 	}
+`;
+
+export const NoTasks = styled.div`
+margin-top: 20px;
+display: flex;
+justify-content: center;
+color: hsl(0, 0%, 50%);
 `;

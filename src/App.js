@@ -2,7 +2,7 @@ import TasksPage from "./features/tasks/TasksPage/TasksPage";
 import TaskPage from "./features/tasks/TaskPage/TaskPage";
 import CurrencyCalculator from "./features/currencyCalculator/CurrencyCalculator";
 import { StyledNavLink } from "./common/StyledNavLink/styled";
-import { HashRouter, Navigate, Route, Routes, red } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Navigation } from "./common/Navigation/styled";
 
 const App = () => {

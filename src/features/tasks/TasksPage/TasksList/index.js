@@ -10,7 +10,9 @@ import {
 	SaveButton,
 	Content,
 	StyledLink,
-	SearchBar
+	SearchBar,
+	EditField,
+	NoTasks
 } from "./styled";
 import {
 	removeTask,
@@ -29,80 +31,97 @@ export const TasksList = () => {
 	const [newTaskContent, setNewTaskContent] = useState("");
 	const [search, setSearch] = useState("");
 	const inputRef = useRef(null);
+	const matchingTasks = tasks.filter(({ content }) =>
+		content.includes(search.trim())
+	);
 
 	return (
 		<>
 			<SearchBar>
 				<Input
 					value={search}
-					onChange={({ target }) => setSearch(target.value)}
+					onChange={({ target }) => {
+						setSearch(target.value);
+						console.log(matchingTasks);
+						console.log(tasks);
+					}}
 					placeholder="Search tasks"
 				></Input>
 			</SearchBar>
-			<List>
-				{tasks.map((task) => (
-					<Task
-						key={task.id}
-						hidden={
-							(hideDone && task.done) ||
-							!task.content.includes(search)
-						}
-					>
-						<ToggleDoneButton
-							onClick={() => dispatch(toggleTaskDone(task.id))}
-						>
-							{task.done ? "✔️" : ""}
-						</ToggleDoneButton>
-						{task.beingEdited ? (
-							<>
-								<Input
-									ref={inputRef}
-									value={newTaskContent}
-									onChange={({ target }) =>
-										setNewTaskContent(target.value)
-									}
-								/>
-								<SaveButton
-									onClick={() => {
-										if (newTaskContent !== "") {
-											dispatch(toggleEditing(task.id));
-											dispatch(
-												saveNewTask([task.id, newTaskContent])
-											);
-										}
-									}}
+			{tasks.length ? (
+				!matchingTasks.length ? (
+					<NoTasks>Brak pasujących zadań</NoTasks>
+				) : (
+					<List>
+						{tasks.map((task) => (
+							<Task
+								key={task.id}
+								hidden={
+									(hideDone && task.done) ||
+									!task.content.includes(search)
+								}
+							>
+								<ToggleDoneButton
+									onClick={() => dispatch(toggleTaskDone(task.id))}
 								>
-									💾
-								</SaveButton>
-							</>
-						) : (
-							<>
-								<StyledLink to={`/to-do-list/${task.id}`}>
-									<Content done={task.done}>{task.content}</Content>
-								</StyledLink>
-								<EditButton
-									onClick={async () => {
-										dispatch(turnOffEditingForOtherTasks());
-										dispatch(toggleEditing(task.id));
-										setNewTaskContent(task.content);
-										try {
-											await inputRef.current;
-											inputRef.current.focus();
-										} catch {}
-									}}
+									{task.done ? "✔️" : ""}
+								</ToggleDoneButton>
+								{task.beingEdited ? (
+									<>
+										<EditField
+											onSubmit={() => {
+												if (newTaskContent !== "") {
+													dispatch(toggleEditing(task.id));
+													dispatch(
+														saveNewTask([task.id, newTaskContent])
+													);
+												}
+											}}
+										>
+											<Input
+												ref={inputRef}
+												value={newTaskContent}
+												onChange={({ target }) =>
+													setNewTaskContent(target.value)
+												}
+											/>
+											<SaveButton>💾</SaveButton>
+										</EditField>
+									</>
+								) : (
+									<>
+										<StyledLink to={`/to-do-list/${task.id}`}>
+											<Content done={task.done}>
+												{task.content}
+											</Content>
+										</StyledLink>
+										<EditButton
+											onClick={async () => {
+												dispatch(turnOffEditingForOtherTasks());
+												dispatch(toggleEditing(task.id));
+												setNewTaskContent(task.content);
+												try {
+													await inputRef.current;
+													inputRef.current.focus();
+												} catch {}
+											}}
+										>
+											✏️
+										</EditButton>
+									</>
+								)}
+								<RemoveButton
+									onClick={() => dispatch(removeTask(task.id))}
 								>
-									✏️
-								</EditButton>
-							</>
-						)}
-						<RemoveButton
-							onClick={() => dispatch(removeTask(task.id))}
-						>
-							🗑️
-						</RemoveButton>
-					</Task>
-				))}
-			</List>
+									🗑️
+								</RemoveButton>
+							</Task>
+						))}
+					</List>
+				)
+			) : (
+				<NoTasks>Brak zadań</NoTasks>
+			)}
 		</>
 	);
 };

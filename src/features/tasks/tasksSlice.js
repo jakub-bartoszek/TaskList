@@ -12,11 +12,11 @@ const tasksSlice = createSlice({
 			tasks.push(task);
 		},
 		removeTask: ({ tasks }, { payload: taskId }) => {
-			const index = tasks.findIndex(({id}) => id === taskId);
+			const index = tasks.findIndex(({ id }) => id === taskId);
 			tasks.splice(index, 1);
 		},
 		toggleTaskDone: ({ tasks }, { payload: taskId }) => {
-			const index = tasks.findIndex(({id}) => id === taskId);
+			const index = tasks.findIndex(({ id }) => id === taskId);
 			tasks[index].done = !tasks[index].done;
 		},
 		setAllDone: ({ tasks }) => {
@@ -28,11 +28,11 @@ const tasksSlice = createSlice({
 			state.hideDone = !state.hideDone;
 		},
 		toggleEditing: ({ tasks }, { payload: taskId }) => {
-			const index = tasks.findIndex(({id}) => id === taskId);
+			const index = tasks.findIndex(({ id }) => id === taskId);
 			tasks[index].beingEdited = !tasks[index].beingEdited;
 		},
 		saveNewTask: ({ tasks }, { payload: [taskId, taskContent] }) => {
-			const index = tasks.findIndex(({id}) => id === taskId);
+			const index = tasks.findIndex(({ id }) => id === taskId);
 			tasks[index].content = taskContent;
 		},
 		turnOffEditingForOtherTasks: ({ tasks }) => {
