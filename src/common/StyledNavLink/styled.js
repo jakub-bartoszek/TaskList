@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const StyledNavLink = styled(NavLink).attrs(() => ("active"))`
+export const StyledNavLink = styled(NavLink)`
   color: white;
   display: flex;
   padding: 10px 20px;
