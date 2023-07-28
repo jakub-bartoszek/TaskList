@@ -7,6 +7,7 @@ border-radius: 20px;
 `;
 
 export const Header = styled.header`
+color: hsl(0, 0%, 80%);
 padding: 15px;
 display: grid;
 grid-template-columns: 1fr auto auto;
