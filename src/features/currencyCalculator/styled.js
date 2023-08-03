@@ -16,6 +16,7 @@ z-index: 10;
 `;
 
 export const Button = styled.button`
+width: 65px;
 	height: 31px;
 	color: pink;
 	background-color: hsl(270, 4%, 11%);
@@ -84,15 +85,19 @@ export const Option = styled.button`
 `;
 
 export const CurrencyOutput = styled.div`
-	display: grid;
-	grid-template-columns: max-content max-content;
-	align-items: end;
+margin-top: 20px;
 `;
 
-export const Output = styled.div`
-	margin: 0;
-	padding: 0;
-	height: 60px;
-	display: flex;
-	font-size: 60px;
+export const Output = styled.span`
+  margin: 20px 0 10px 0;
+  font-size: 70px;
+  padding: 0;
+  word-break: break-all;
+`;
+
+export const RatesDate = styled.div`
+padding: 0 10px;
+text-align: center;
+font-size: 10px;
+color: pink;
 `;

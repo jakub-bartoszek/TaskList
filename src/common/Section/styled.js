@@ -17,6 +17,7 @@ grid-template-columns: 1fr auto auto;
 `;
 
 export const Title = styled.h2`
+white-space: nowrap;
 margin: 0;
 `;
 

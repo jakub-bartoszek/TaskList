@@ -11,7 +11,8 @@ import {
 	Output,
 	Select,
 	CurrencyInput,
-	CurrencyOutput
+	CurrencyOutput,
+	RatesDate
 } from "./styled";
 import { useRatesData } from "./useRatesData";
 import { useRef, useState } from "react";
@@ -27,18 +28,24 @@ import {
 
 function CurrencyCalculator() {
 	const dispatch = useDispatch();
-	const resultValue = useSelector(selectResultValue).toFixed(2);
+	const resultValue = useSelector(selectResultValue);
 	const inputCurrency = useSelector(selectInputCurrency);
 	const outputCurrency = useSelector(selectOutputCurrency);
 	const [amount, setAmount] = useState("");
 	const ratesData = useRatesData();
 	const inputRef = useRef(null);
-  const INPUT_MAX_LENGTH = 14;
+	const INPUT_MAX_LENGTH = 14;
 
 	return (
 		<Container>
 			<Header title="Currency Calculator" />
 			<Section
+				extraHeaderContent={
+					<RatesDate>
+						<p>Exchange rates up to date for the day</p>
+            <p>{ratesData.date}</p>
+					</RatesDate>
+				}
 				title="Convert your currency"
 				body={
 					<>
@@ -80,7 +87,7 @@ function CurrencyCalculator() {
 							</Select>
 						</CurrencyInput>
 						<CurrencyOutput>
-							<Output>{resultValue}</Output>
+							<Output>{resultValue.toFixed(2)}</Output>
 							<Select>
 								{ratesData.success && (
 									<>
