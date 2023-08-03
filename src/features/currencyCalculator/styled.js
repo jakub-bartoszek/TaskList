@@ -85,12 +85,11 @@ export const Option = styled.button`
 `;
 
 export const CurrencyOutput = styled.div`
-margin-top: 20px;
+margin-top: 10px;
 `;
 
 export const Output = styled.span`
-  margin: 20px 0 10px 0;
-  font-size: 70px;
+  font-size: 50px;
   padding: 0;
   word-break: break-all;
 `;
