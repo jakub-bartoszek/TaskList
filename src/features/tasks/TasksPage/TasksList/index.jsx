@@ -24,6 +24,8 @@ import {
 	toggleTaskDone
 } from "../../tasksSlice";
 
+import { date } from "../../useDate";
+
 export const TasksList = () => {
 	const tasks = useSelector(selectTasks);
 	const hideDone = useSelector(selectHideDone);
@@ -73,7 +75,11 @@ export const TasksList = () => {
 												if (newTaskContent !== "") {
 													dispatch(toggleEditing(task.id));
 													dispatch(
-														saveNewTask([task.id, newTaskContent])
+														saveNewTask([
+															task.id,
+															newTaskContent,
+															date
+														])
 													);
 												}
 											}}

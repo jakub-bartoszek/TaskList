@@ -14,8 +14,14 @@ function TasksPage() {
 			<Container>
 				<Header title="Your Task" />
 				<Section
+				extraHeaderContent={<p>Created: {task.creationDate}</p>}
 					title={task.content}
-					body={<>Done: {task.done ? "Yes" : "No"}</>}
+					body={
+						<>
+							<p>Done: {task.done ? "Yes" : "No"}</p>
+							<p>Modified: {task.modificationDate}</p>
+						</>
+					}
 				/>
 			</Container>
 		</>

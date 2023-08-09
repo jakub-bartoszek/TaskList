@@ -5,12 +5,14 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { addNewTask } from "../../tasksSlice";
 import { nanoid } from "@reduxjs/toolkit";
+import { date } from "../../useDate";
 
 export const Form = () => {
 	const resetInput = () => {
 		setNewTaskContent("");
 		inputRef.current.focus();
 	};
+
 
 	const dispatch = useDispatch();
 	const inputRef = useRef(null);
@@ -24,7 +26,8 @@ export const Form = () => {
 					content: newTaskContent,
 					done: false,
 					id: nanoid(),
-					beingEdited: false
+					beingEdited: false,
+					creationDate: date,
 				})
 			);
 		}

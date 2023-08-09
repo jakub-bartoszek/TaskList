@@ -31,9 +31,10 @@ const tasksSlice = createSlice({
 			const index = tasks.findIndex(({ id }) => id === taskId);
 			tasks[index].beingEdited = !tasks[index].beingEdited;
 		},
-		saveNewTask: ({ tasks }, { payload: [taskId, taskContent] }) => {
+		saveNewTask: ({ tasks }, { payload: [taskId, taskContent, date] }) => {
 			const index = tasks.findIndex(({ id }) => id === taskId);
 			tasks[index].content = taskContent;
+			tasks[index].modificationDate = date;
 		},
 		turnOffEditingForOtherTasks: ({ tasks }) => {
 			for (const task of tasks) {
