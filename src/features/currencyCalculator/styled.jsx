@@ -7,7 +7,7 @@ export const CurrencyInput = styled.div`
 `;
 
 export const DropDownContent = styled.div`
-z-index: 10;
+	z-index: 10;
 	display: flex;
 	position: absolute;
 	transition: all 0.3s;
@@ -16,7 +16,7 @@ z-index: 10;
 `;
 
 export const Button = styled.button`
-width: 65px;
+	width: 65px;
 	height: 31px;
 	color: pink;
 	background-color: hsl(270, 4%, 11%);
@@ -26,18 +26,13 @@ width: 65px;
 	cursor: pointer;
 `;
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled(Button)`
+	color: hsl(260, 6%, 10%);
 	margin-top: 15px;
 	width: 100%;
-	height: 31px;
-	color: hsl(260, 6%, 10%);
 	font-weight: 700;
 	background-color: hsl(0, 100%, 85%);
-	border: 2px solid hsl(260, 5%, 10%);
-	border-radius: 10px;
-	transition: 0.3s;
-	cursor: pointer;
-	&:hover{
+	&:hover {
 		background-color: #ffc0c0;
 	}
 `;
@@ -64,18 +59,18 @@ export const Options = styled.div`
 `;
 
 export const Option = styled.button`
+	backdrop-filter: blur(2px);
 	height: 23px;
-	background-color: hsl(270, 4%, 11%);
+	background-color: hsl(270, 4%, 11%, 90%);
 	width: 100%;
 	text-align: left;
-	color: pink;
+	color: hsl(350, 100%, 88%);
 	cursor: pointer;
-
 	border: none;
 	border-bottom: 1px solid hsl(260, 5%, 10%);
 	transition: 0.3s;
 	&:hover {
-		background-color: hsl(270, 4%, 13%);
+		background-color: hsl(270, 4%, 13%, 90%);
 		text-shadow: 0px 0px 10px hsl(0, 100%, 88%);
 		color: hsl(0, 100%, 92%);
 	}
@@ -85,18 +80,18 @@ export const Option = styled.button`
 `;
 
 export const CurrencyOutput = styled.div`
-margin-top: 10px;
+	margin-top: 10px;
 `;
 
 export const Output = styled.span`
-  font-size: 50px;
-  padding: 0;
-  word-break: break-all;
+	font-size: 50px;
+	padding: 0;
+	word-break: break-all;
 `;
 
 export const RatesDate = styled.div`
-padding: 0 10px;
-text-align: center;
-font-size: 10px;
-color: pink;
+	padding: 0 10px;
+	text-align: center;
+	font-size: 10px;
+	color: hsl(350, 100%, 88%);
 `;

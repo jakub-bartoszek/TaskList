@@ -7,12 +7,11 @@ import { tasksSaga } from "./features/tasks/tasksSaga";
 const sagaMiddleWare = createSagaMiddleware();
 
 const store = configureStore({
-  reducer: {
-    result: resultReducer,
-    tasks: tasksReducer,
-    
-  },
-  middleware: [sagaMiddleWare]
+	reducer: {
+		result: resultReducer,
+		tasks: tasksReducer
+	},
+	middleware: [sagaMiddleWare]
 });
 
 sagaMiddleWare.run(tasksSaga);

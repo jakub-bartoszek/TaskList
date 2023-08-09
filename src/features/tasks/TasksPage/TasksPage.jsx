@@ -6,7 +6,6 @@ import { TasksList } from "./TasksList";
 import { Buttons } from "./Buttons";
 
 function TasksPage() {
-
 	return (
 		<>
 			<Container>
@@ -17,9 +16,7 @@ function TasksPage() {
 				/>
 				<Section
 					title="Tasks"
-					extraHeaderContent={
-						<Buttons />
-					}
+					extraHeaderContent={<Buttons />}
 					body={
 						<>
 							<TasksList />

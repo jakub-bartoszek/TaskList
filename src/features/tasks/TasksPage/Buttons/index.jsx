@@ -5,7 +5,7 @@ import {
 	selectHideDone,
 	setAllDone,
 	toggleHideDone
-} from "../../tasksSlice.js";
+} from "../../tasksSlice.jsx";
 
 export const Buttons = () => {
 	const dispatch = useDispatch();

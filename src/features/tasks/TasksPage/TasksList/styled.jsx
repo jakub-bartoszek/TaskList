@@ -1,14 +1,12 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
-export const SearchBar = styled.div`
-`;
+export const SearchBar = styled.div``;
 
 export const List = styled.ul`
 	margin: 0;
-	padding: 25px 0  0;
+	padding: 25px 0 0;
 	list-style: none;
-	
 `;
 
 export const Task = styled.li`
@@ -30,7 +28,7 @@ export const Task = styled.li`
 export const Content = styled.span`
 	margin: 0 10px;
 	transition: 0.3s;
-  color: white;
+	color: hsl(0, 0%, 100%);
 
 	${({ done }) =>
 		done &&
@@ -57,7 +55,7 @@ export const ToggleDoneButton = styled.button`
 	transition: background-color 0.5s, scale 0.3s;
 	cursor: pointer;
 	&:hover {
-		background-color: green;
+		background-color: hsl(120, 100%, 25%);
 		scale: 1.1;
 	}
 `;
@@ -71,7 +69,7 @@ export const RemoveButton = styled.button`
 	transition: background-color 0.5s, scale 0.3s, border-radius 0.1s;
 	cursor: pointer;
 	&:hover {
-		background-color: red;
+		background-color: hsl(0, 100%, 50%);
 		scale: 1.1;
 		border-radius: 5px;
 	}
@@ -86,14 +84,14 @@ export const EditButton = styled.button`
 	transition: background-color 0.5s, scale 0.3s, border-radius 0.1s;
 	cursor: pointer;
 	&:hover {
-		background-color: yellow;
+		background-color: hsl(60, 100%, 50%);
 		scale: 1.1;
 		border-radius: 5px;
 	}
 `;
 
 export const EditField = styled.form`
-display: grid;
+	display: grid;
 	gap: 3px;
 	grid-template-columns: 1fr auto;
 	align-items: center;
@@ -109,15 +107,15 @@ export const SaveButton = styled.button`
 	transition: background-color 0.5s, scale 0.3s, border-radius 0.1s;
 	cursor: pointer;
 	&:hover {
-		background-color: blue;
+		background-color: hsl(240, 100%, 50%);
 		scale: 1.1;
 		border-radius: 5px;
 	}
 `;
 
 export const NoTasks = styled.div`
-margin-top: 20px;
-display: flex;
-justify-content: center;
-color: hsl(0, 0%, 50%);
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	color: hsl(0, 0%, 50%);
 `;

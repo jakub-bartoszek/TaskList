@@ -9,6 +9,6 @@ html {
 }
 
 body {
-  background-color: rgb(38, 37, 41);
-  color: white;
+  background-color: hsl(255, 5%, 15%);
+  color: hsl(0, 0%, 100%);
 }

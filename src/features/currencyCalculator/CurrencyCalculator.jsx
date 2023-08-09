@@ -43,7 +43,7 @@ function CurrencyCalculator() {
 				extraHeaderContent={
 					<RatesDate>
 						<p>Exchange rates up to date for the day</p>
-            <p>{ratesData.date}</p>
+						<p>{ratesData.date}</p>
 					</RatesDate>
 				}
 				title="Convert your currency"
