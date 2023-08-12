@@ -4,6 +4,7 @@ import { Header } from "../../../common/Header";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getTaskById } from "../tasksSlice";
+import { ModificationInfo } from "./styled";
 
 function TasksPage() {
 	const { id } = useParams();
@@ -14,12 +15,16 @@ function TasksPage() {
 			<Container>
 				<Header title="Your Task" />
 				<Section
-				extraHeaderContent={<p>Created: {task.creationDate}</p>}
+					extraHeaderContent={
+						task.modificationDate && (
+							<p>Modified: {task.modificationDate}</p>
+						)
+					}
 					title={task.content}
 					body={
 						<>
-							<p>Done: {task.done ? "Yes" : "No"}</p>
-							<p>Modified: {task.modificationDate}</p>
+							<p>Done: <i>{task.done ? "Yes" : "No"}</i></p>
+							<p>Created: <i>{task.creationDate}</i></p>
 						</>
 					}
 				/>
