@@ -11,6 +11,7 @@ export const Header = styled.header`
 	padding: 15px;
 	display: grid;
 	grid-template-columns: 1fr auto auto;
+	align-items: center;
 	@media (max-width: 430px) {
 		grid-template-columns: 1fr;
 	}
