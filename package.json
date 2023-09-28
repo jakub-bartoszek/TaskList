@@ -1,8 +1,8 @@
 {
-	"name": "new-task-list",
+	"name": "task-list-and-currency-converter",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://cgt19bartoszekj.github.io/new-task-list/",
+	"homepage": "https://cgt19bartoszekj.github.io/Task-list-and-Currency-converter/",
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.5",
 		"@testing-library/jest-dom": "^5.16.5",
