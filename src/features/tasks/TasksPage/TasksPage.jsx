@@ -9,7 +9,7 @@ function TasksPage() {
 	return (
 		<>
 			<Container>
-				<Header title="To-do List" />
+				<Header title="Task List" />
 				<Section
 					title="Add new task"
 					body={<Form />}
