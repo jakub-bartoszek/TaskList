@@ -17,7 +17,7 @@ function TasksPage() {
 				<Section
 					extraHeaderContent={
 						task.modificationDate && (
-							<p>Modified: {task.modificationDate}</p>
+							<ModificationInfo>Modified: {task.modificationDate}</ModificationInfo>
 						)
 					}
 					title={task.content}
