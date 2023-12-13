@@ -96,7 +96,7 @@ export const TasksList = () => {
 									</>
 								) : (
 									<>
-										<StyledLink to={`/to-do-list/${task.id}`}>
+										<StyledLink to={`/tasks/${task.id}`}>
 											<Content done={task.done}>
 												{task.content}
 											</Content>
