@@ -1,12 +1,15 @@
 # Task List
-[App i live here.](https://jakub-bartoszek.github.io/TaskList)
+[App is live here.](https://jakub-bartoszek.github.io/TaskList)
+
+- [Functions](#functions)
+- [Markdown - Link](#link)
 
 ## About this app.
 Simple task list with all necessary functionalities.
 
 ![image](https://github.com/jakub-bartoszek/TaskList/assets/113419864/94300dda-fee2-4ac7-9d0d-27bb305c1567)
 
-
+## Functions
 
 - ### Adding new task
     ![image](https://github.com/jakub-bartoszek/TaskList/assets/113419864/a83a9720-b504-406a-8542-3913f586c7c4)
@@ -46,6 +49,7 @@ Simple task list with all necessary functionalities.
 
 
 
+# Link
 
 
 
