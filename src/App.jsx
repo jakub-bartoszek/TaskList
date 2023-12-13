@@ -7,11 +7,10 @@ const App = () => {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/to-do-list/:id" element={<TaskPage />} />
-        <Route path="/to-do-list" element={<TasksPage />} />
-        <Route path="/" element={<Navigate to="/to-do-list" />} />
+        <Route path="/tasks/:id" element={<TaskPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/" element={<Navigate to="/tasks" />} />
       </Routes>
-
     </HashRouter>
   );
 };
