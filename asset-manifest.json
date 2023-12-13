@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Task-list-and-Currency-converter/static/css/main.576176f6.css",
-    "main.js": "/Task-list-and-Currency-converter/static/js/main.f9de0a35.js",
-    "static/js/787.b4a7960e.chunk.js": "/Task-list-and-Currency-converter/static/js/787.b4a7960e.chunk.js",
-    "index.html": "/Task-list-and-Currency-converter/index.html",
-    "main.576176f6.css.map": "/Task-list-and-Currency-converter/static/css/main.576176f6.css.map",
-    "main.f9de0a35.js.map": "/Task-list-and-Currency-converter/static/js/main.f9de0a35.js.map",
-    "787.b4a7960e.chunk.js.map": "/Task-list-and-Currency-converter/static/js/787.b4a7960e.chunk.js.map"
+    "main.css": "/TaskList/static/css/main.576176f6.css",
+    "main.js": "/TaskList/static/js/main.5d0cda47.js",
+    "static/js/787.b4a7960e.chunk.js": "/TaskList/static/js/787.b4a7960e.chunk.js",
+    "index.html": "/TaskList/index.html",
+    "main.576176f6.css.map": "/TaskList/static/css/main.576176f6.css.map",
+    "main.5d0cda47.js.map": "/TaskList/static/js/main.5d0cda47.js.map",
+    "787.b4a7960e.chunk.js.map": "/TaskList/static/js/787.b4a7960e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.576176f6.css",
-    "static/js/main.f9de0a35.js"
+    "static/js/main.5d0cda47.js"
   ]
 }
