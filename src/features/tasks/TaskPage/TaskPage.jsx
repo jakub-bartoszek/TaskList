@@ -7,30 +7,34 @@ import { getTaskById } from "../tasksSlice";
 import { ModificationInfo } from "./styled";
 
 function TasksPage() {
-	const { id } = useParams();
-	const task = useSelector((state) => getTaskById(state, id));
+ const { id } = useParams();
+ const task = useSelector((state) => getTaskById(state, id));
 
-	return (
-		<>
-			<Container>
-				<Header title="Your Task" />
-				<Section
-					extraHeaderContent={
-						task.modificationDate && (
-							<ModificationInfo>Modified: {task.modificationDate}</ModificationInfo>
-						)
-					}
-					title={task.content}
-					body={
-						<>
-							<p>Done: <i>{task.done ? "Yes" : "No"}</i></p>
-							<p>Created: <i>{task.creationDate}</i></p>
-						</>
-					}
-				/>
-			</Container>
-		</>
-	);
+ return (
+  <>
+   <Container>
+    <Header title="Your Task" />
+    <Section
+     extraHeaderContent={
+      task.modificationDate && (
+       <ModificationInfo>Modified: {task.modificationDate}</ModificationInfo>
+      )
+     }
+     title={task.content}
+     body={
+      <>
+       <p>
+        Done: <i>{task.done ? "Yes" : "No"}</i>
+       </p>
+       <p>
+        Created: <i>{task.creationDate}</i>
+       </p>
+      </>
+     }
+    />
+   </Container>
+  </>
+ );
 }
 
 export default TasksPage;

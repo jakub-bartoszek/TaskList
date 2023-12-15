@@ -8,43 +8,42 @@ import { nanoid } from "@reduxjs/toolkit";
 import { date } from "../../useDate";
 
 export const Form = () => {
-	const resetInput = () => {
-		setNewTaskContent("");
-		inputRef.current.focus();
-	};
+ const resetInput = () => {
+  setNewTaskContent("");
+  inputRef.current.focus();
+ };
 
+ const dispatch = useDispatch();
+ const inputRef = useRef(null);
 
-	const dispatch = useDispatch();
-	const inputRef = useRef(null);
+ const onFormSubmit = (event) => {
+  event.preventDefault();
 
-	const onFormSubmit = (event) => {
-		event.preventDefault();
+  if (newTaskContent.trim()) {
+   dispatch(
+    addNewTask({
+     content: newTaskContent,
+     done: false,
+     id: nanoid(),
+     beingEdited: false,
+     creationDate: date
+    })
+   );
+  }
+  resetInput();
+ };
 
-		if (newTaskContent.trim()) {
-			dispatch(
-				addNewTask({
-					content: newTaskContent,
-					done: false,
-					id: nanoid(),
-					beingEdited: false,
-					creationDate: date,
-				})
-			);
-		}
-		resetInput();
-	};
+ const [newTaskContent, setNewTaskContent] = useState("");
 
-	const [newTaskContent, setNewTaskContent] = useState("");
-
-	return (
-		<Wrapper onSubmit={onFormSubmit}>
-			<Input
-				placeholder="What do we have to do?"
-				ref={inputRef}
-				value={newTaskContent}
-				onChange={(event) => setNewTaskContent(event.target.value)}
-			></Input>
-			<Button>Add task</Button>
-		</Wrapper>
-	);
+ return (
+  <Wrapper onSubmit={onFormSubmit}>
+   <Input
+    placeholder="What do we have to do?"
+    ref={inputRef}
+    value={newTaskContent}
+    onChange={(event) => setNewTaskContent(event.target.value)}
+   ></Input>
+   <Button>Add task</Button>
+  </Wrapper>
+ );
 };
